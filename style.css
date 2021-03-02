@@ -173,6 +173,9 @@
 
 
 @media screen and (max-width: 500px) {
+    body {
+        width: 95%;
+    }
     header button {
         height: 50px;
         width: 50px;
