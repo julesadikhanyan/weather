@@ -21,6 +21,7 @@
     .weather-here {
         font-size: 4vw;
         margin: 0;
+        border: 1px solid red;
     }
 
     .new-location {
@@ -28,6 +29,7 @@
         justify-content: center;
         align-items: center;
         margin-top: 3px;
+        border: 1px solid red;
     }
 
     button {
@@ -54,19 +56,24 @@
           width: 250px;
           float: left;
           margin-right: 50px;
+          border: 1px solid red;
       }
     h2 {
         font-size: 3rem;
         margin: 0;
+        border: 1px solid red;
         text-align: center;
     }
 
     .my-city p {
         font-size: 5rem;
+        border: 1px solid red;
     }
     ul {
         list-style-type: none;
         padding: 0;
+
+        border: 1px solid red;
     }
 
     ul li {
@@ -125,10 +132,12 @@
 
     .city-left {
         padding-right: 50px;
+        /*border: 1px solid red;*/
     }
 
     .city-right {
         padding-left: 50px;
+        /*border: 1px solid red;*/
     }
     h3 {
         font-size: 2rem;
@@ -163,7 +172,7 @@
 }
 
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 500px) {
     header button {
         height: 50px;
         width: 50px;
