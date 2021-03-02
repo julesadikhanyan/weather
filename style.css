@@ -19,7 +19,7 @@
         grid-template-areas: "weather-here new-location weather-here";
     }
     .weather-here {
-        font-size: 4vw;
+        font-size: 4rem;
         margin: 0;
         border: 1px solid red;
     }
@@ -62,7 +62,6 @@
         font-size: 3rem;
         margin: 0;
         border: 1px solid red;
-        text-align: center;
     }
 
     .my-city p {
@@ -173,9 +172,22 @@
 
 
 @media screen and (max-width: 500px) {
-    body {
-        width: 95%;
+    /*body {
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+    }*/
+
+    header {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "weather-here new-location";
+        border: 1px solid red;
     }
+
+    .weather-here {
+        font-size: 2rem;
+    }
+
     header button {
         height: 50px;
         width: 50px;
@@ -187,11 +199,11 @@
          grid-template-columns: 1fr;
      }
     .my-city img {
-          height: 150px;
-          width: 150px;
+          height: 120px;
+          width: 120px;
       }
     .my-city p {
-           font-size: 4rem;
+           font-size: 3rem;
            margin-top: 30px;
        }
     .new-city {
@@ -205,5 +217,14 @@
     .city-right {
         margin-top: 10px;
         padding-left: 0;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin: 0;
+        border: 1px solid red;
+    }
+    input {
+        width: 200px;
     }
 }
