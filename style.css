@@ -48,12 +48,18 @@
         width: 20vw;
         border-radius: 10px;
     }
-    main {
+    .current-city, .favorites {
          display: grid;
          grid-template-columns: repeat(2, 1fr);
+         grid-row-gap: 20px;
      }
+
+    .favorites {
+        margin-top: 20px;
+    }
+
     .my-city img {
-          height: 250px;
+        height: 250px;
           width: 250px;
           float: left;
           margin-right: 50px;
@@ -97,11 +103,12 @@
         flex-direction: row;
         justify-content: flex-end;
         align-items: center;
+        /*border: 1px solid red;*/
     }
 
     input {
         height: 50px;
-        width: 300px;
+        width: 30vw;
 
         background: none;
         border: 1px solid lightblue;
@@ -141,7 +148,7 @@
         /*border: 1px solid red;*/
     }
     h3 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         margin: 0;
 
     }
@@ -171,10 +178,22 @@
         margin: 5px 4px 0 0;
     }
 }
+@media screen and (max-width: 1100px) {
+    .weather-here {
+        font-size: 2rem;
+    }
 
+    .my-city img {
+        height: 150px;
+        width: 150px;
+    }
+    .my-city p {
+        font-size: 2.5rem;
+        margin-top: 30px;
+    }
+}
 
-@media screen and (max-width: 500px) {
-
+@media screen and (max-width: 768px) {
     header {
         grid-template-columns: repeat(2, 1fr);
         grid-template-areas: "weather-here new-location";
@@ -183,6 +202,7 @@
 
     .weather-here {
         font-size: 2rem;
+        /*border: 1px solid red;*/
     }
 
     header button {
@@ -191,17 +211,22 @@
         background-image: url("img/reload.svg");
         font-size: 0;
         border-radius: 10px;
+        /*border: 1px solid red;*/
+
     }
-    main {
+    .current-city, .favorites {
          grid-template-columns: 1fr;
+         grid-row-gap: 20px;
      }
     .my-city img {
           height: 120px;
           width: 120px;
+          /*border: 1px solid red;*/
       }
     .my-city p {
-           font-size: 3rem;
-           margin-top: 30px;
+        font-size: 3rem;
+        margin-top: 30px;
+        /*border: 1px solid red;*/
        }
     .new-city {
         margin-top: 10px;
@@ -222,6 +247,6 @@
         /*border: 1px solid red;*/
     }
     input {
-        width: 200px;
+        width: 50vw;
     }
 }
