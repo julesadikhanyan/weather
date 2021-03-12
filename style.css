@@ -49,9 +49,10 @@
         border-radius: 10px;
     }
     .current-city, .favorites {
-         display: grid;
-         grid-template-columns: repeat(2, 1fr);
-         grid-row-gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 20px;
+        grid-column-gap: 40px;
      }
 
     .favorites {
@@ -138,15 +139,6 @@
         margin-right: 5px;
     }
 
-    .city-left {
-        padding-right: 50px;
-        /*border: 1px solid red;*/
-    }
-
-    .city-right {
-        padding-left: 50px;
-        /*border: 1px solid red;*/
-    }
     h3 {
         font-size: 1.5rem;
         margin: 0;
