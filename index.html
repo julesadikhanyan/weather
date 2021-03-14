@@ -8,23 +8,29 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer></script>
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script src="script.js"></script>
 </head>
-<body>
+<body onload="getPosition()">
 <header>
     <h1 class="weather-here">Погода здесь</h1>
     <div class="new-location">
-        <button id="button">Обновить геолокацию</button>
+        <button id="button" onclick="reloadGeo()">Обновить геолокацию</button>
     </div>
 </header>
 <main>
-    <section class="current-city">
+    <section id="wait">
+        <p>Подождите, данные загружаются</p>
+        <button id="wait-reload-button"></button>
+    </section>
+
+    <section id="current-city">
         <article class="my-city">
             <h2>Saint Petersburg</h2>
             <img src="img/sunny-rain.svg" alt="sunny-rain">
             <p>8°C</p>
         </article>
+
         <div class="my-city-list">
             <ul>
                 <li>
@@ -51,199 +57,46 @@
         </div>
     </section>
 
-    <section class="favorites">
+    <section id="favorites">
         <h2 class="favorites-header">Избранное</h2>
-        <article class="new-city">
+        <div class="new-city">
             <label>
                 <input class="search" placeholder="Добавить новый город">
             </label>
             <button>+</button>
-        </article>
+        </div>
 
-        <section class="city-left">
-            <button class="close-button">×</button>
-            <article class="city-header">
-                <h3>Moscow</h3>
-                <img src="img/sunny-rain.svg" alt="sunny-rain">
-                <p>5°C</p>
-            </article>
-            <ul>
-                <li>
-                    <p>Ветер</p>
-                    <p class="wind">Moderate breeze</p>
-                </li>
-                <li>
-                    <p>Ощущается как</p>
-                    <p class="feels_like">Broken clouds</p>
-                </li>
-                <li>
-                    <p>Давление</p>
-                    <p class="pressure">1013 hpa</p>
-                </li>
-                <li>
-                    <p>Влажность</p>
-                    <p class="humidity">52%</p>
-                </li>
-                <li>
-                    <p>Координаты</p>
-                    <p class="coords">[59.88, 30.42]</p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="city-right">
-            <button class="close-button">×</button>
-            <article class="city-header">
-                <h3>Helsinki</h3>
-                <img src="img/sunny-rain.svg" alt="sunny-rain">
-                <p>10°C</p>
-            </article>
-            <ul>
-                <li>
-                    <p>Ветер</p>
-                    <p>Moderate breeze</p>
-                </li>
-                <li>
-                    <p>Обласность</p>
-                    <p>Broken clouds</p>
-                </li>
-                <li>
-                    <p>Давление</p>
-                    <p>1013 hpa</p>
-                </li>
-                <li>
-                    <p>Влажность</p>
-                    <p>52%</p>
-                </li>
-                <li>
-                    <p>Координаты</p>
-                    <p>[59.88, 30.42]</p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="city-left">
-            <button class="close-button">×</button>
-            <article class="city-header">
-                <h3>Moscow</h3>
-                <img src="img/sunny-rain.svg" alt="sunny-rain">
-                <p>5°C</p>
-            </article>
-            <ul>
-                <li>
-                    <p>Ветер</p>
-                    <p>Moderate breeze</p>
-                </li>
-                <li>
-                    <p>Обласность</p>
-                    <p>Broken clouds</p>
-                </li>
-                <li>
-                    <p>Давление</p>
-                    <p>1013 hpa</p>
-                </li>
-                <li>
-                    <p>Влажность</p>
-                    <p>52%</p>
-                </li>
-                <li>
-                    <p>Координаты</p>
-                    <p>[59.88, 30.42]</p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="city-right">
-            <button class="close-button">×</button>
-            <article class="city-header">
-                <h3>Helsinki</h3>
-                <img src="img/sunny-rain.svg" alt="sunny-rain">
-                <p>10°C</p>
-            </article>
-            <ul>
-                <li>
-                    <p>Ветер</p>
-                    <p>Moderate breeze</p>
-                </li>
-                <li>
-                    <p>Обласность</p>
-                    <p>Broken clouds</p>
-                </li>
-                <li>
-                    <p>Давление</p>
-                    <p>1013 hpa</p>
-                </li>
-                <li>
-                    <p>Влажность</p>
-                    <p>52%</p>
-                </li>
-                <li>
-                    <p>Координаты</p>
-                    <p>[59.88, 30.42]</p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="city-left">
-            <button class="close-button">×</button>
-            <article class="city-header">
-                <h3>Moscow</h3>
-                <img src="img/sunny-rain.svg" alt="sunny-rain">
-                <p>5°C</p>
-            </article>
-            <ul>
-                <li>
-                    <p>Ветер</p>
-                    <p>Moderate breeze</p>
-                </li>
-                <li>
-                    <p>Обласность</p>
-                    <p>Broken clouds</p>
-                </li>
-                <li>
-                    <p>Давление</p>
-                    <p>1013 hpa</p>
-                </li>
-                <li>
-                    <p>Влажность</p>
-                    <p>52%</p>
-                </li>
-                <li>
-                    <p>Координаты</p>
-                    <p>[59.88, 30.42]</p>
-                </li>
-            </ul>
-        </section>
-
-        <section class="city-right">
-            <button class="close-button">×</button>
-            <article class="city-header">
-                <h3>Helsinki</h3>
-                <img src="img/sunny-rain.svg" alt="sunny-rain">
-                <p>10°C</p>
-            </article>
-            <ul>
-                <li>
-                    <p>Ветер</p>
-                    <p>Moderate breeze</p>
-                </li>
-                <li>
-                    <p>Обласность</p>
-                    <p>Broken clouds</p>
-                </li>
-                <li>
-                    <p>Давление</p>
-                    <p>1013 hpa</p>
-                </li>
-                <li>
-                    <p>Влажность</p>
-                    <p>52%</p>
-                </li>
-                <li>
-                    <p>Координаты</p>
-                    <p>[59.88, 30.42]</p>
-                </li>
-            </ul>
+        <section id="city">
+            <section id="city-content">
+                <button class="close-button">×</button>
+                <article class="city-header">
+                    <h3>Moscow</h3>
+                    <img src="img/sunny-rain.svg" alt="sunny-rain">
+                    <p>5°C</p>
+                </article>
+                <ul>
+                    <li>
+                        <p>Ветер</p>
+                        <p class="wind">Moderate breeze</p>
+                    </li>
+                    <li>
+                        <p>Ощущается как</p>
+                        <p class="feels_like">Broken clouds</p>
+                    </li>
+                    <li>
+                        <p>Давление</p>
+                        <p class="pressure">1013 hpa</p>
+                    </li>
+                    <li>
+                        <p>Влажность</p>
+                        <p class="humidity">52%</p>
+                    </li>
+                    <li>
+                        <p>Координаты</p>
+                        <p class="coords">[59.88, 30.42]</p>
+                    </li>
+                </ul>
+            </section>
         </section>
     </section>
 </main>
