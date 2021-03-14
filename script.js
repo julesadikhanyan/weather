@@ -12,7 +12,7 @@ function setPosition(position) {
 const weather = {
     "key": "a278fd3c83b4ffbf98780de2881d2e7d",
     fetchWeather: function (latitude, longitude) {
-        let api = "http://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude +
+        let api = "https://api.openweathermap.org/data/2.5/weather?lat=" + latitude + "&lon=" + longitude +
         "&units=metric&appid=" + this.key;
 
         fetch(api).then((response) => response.json())
@@ -25,7 +25,7 @@ const weather = {
         const { speed } = data.wind;
         const { lon, lat } = data.coord;
         document.querySelector(".my-city h2").innerHTML = name;
-        document.querySelector(".my-city img").src = "http://openweathermap.org/img/wn/" + icon + "@4x.png";
+        document.querySelector(".my-city img").src = "https://openweathermap.org/img/wn/" + icon + "@4x.png";
         document.querySelector(".my-city p").innerText = Math.round(temp) + "°C";
         document.querySelector(".my-city-list .wind").innerText = speed + " m/s";
         document.querySelector(".my-city-list .pressure").innerText = pressure + " hpa";
