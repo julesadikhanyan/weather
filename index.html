@@ -1,104 +1,105 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Погода</title>
-    <meta name="keywords" content="Погода, прогноз">
-    <meta name="description" content="Сайт прогноза погоды">
+    <title>Weather Forecast</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-    <script src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap" rel="stylesheet">
+    <script src="scripts/script.js"></script>
+    <script src="scripts/geolocation.js"></script>
+    <script src="scripts/fetch.js"></script>
+    <script src="scripts/print.js"></script>
+    <script src="scripts/update.js"></script>
+    <script src="scripts/add.js"></script>
+    <script src="scripts/delete.js"></script>
 </head>
-<body onload="getPosition()">
-<header>
-    <h1 class="weather-here">Погода здесь</h1>
-    <div class="new-location">
-        <button id="button" onclick="reloadGeo()">Обновить геолокацию</button>
+<body>
+<header class="header">
+    <h1>Weather Forecast</h1>
+    <div class="header-update">
+        <button onclick="updateGeolocation()">Update geolocation</button>
     </div>
 </header>
 <main>
-    <section id="wait">
-        <p>Подождите, данные загружаются</p>
-        <button id="wait-reload-button"></button>
+    <section class="current-city" id="current-city">
+        <div class="current-city-main">
+            <h2>Please, wait! Loading!</h2>
+            <div class="current-city-content">
+                <img src="img/update.svg" alt="update">
+                <p></p>
+            </div>
+        </div>
+        <ul class="current-city-list">
+            <li>
+                <p>Feels like</p>
+                <p class="feels-like"></p>
+            </li>
+            <li>
+                <p>Wind speed</p>
+                <p class="wind-speed"></p>
+            </li>
+            <li>
+                <p>Humidity</p>
+                <p class="humidity"></p>
+            </li>
+            <li>
+                <p>Pressure</p>
+                <p class="pressure"></p>
+            </li>
+            <li>
+                <p>Coords</p>
+                <p class="coords"></p>
+            </li>
+        </ul>
     </section>
 
-    <section id="current-city">
-        <article class="my-city">
-            <h2>Saint Petersburg</h2>
-            <img src="img/sunny-rain.svg" alt="sunny-rain">
-            <p>8°C</p>
-        </article>
-
-        <div class="my-city-list">
-            <ul>
-                <li>
-                    <p>Ветер</p>
-                    <p class="wind">Moderate breeze</p>
-                </li>
-                <li>
-                    <p>Ощущается как</p>
-                    <p class="feels_like">Broken clouds</p>
-                </li>
-                <li>
-                    <p>Давление</p>
-                    <p class="pressure">1013 hpa</p>
-                </li>
-                <li>
-                    <p>Влажность</p>
-                    <p class="humidity">52%</p>
-                </li>
-                <li>
-                    <p>Координаты</p>
-                    <p class="coords">[59.88, 30.42]</p>
-                </li>
-            </ul>
+    <section class="favorites">
+        <div class="favorites-header">
+            <h2>Favorites</h2>
+            <div class="new-city">
+                <label>
+                    <input class="add-new-city" placeholder="Enter city name...">
+                </label>
+                <button onclick="addCity()">+</button>
+            </div>
         </div>
+        <div class="cities"></div>
     </section>
 
-    <section id="favorites">
-        <h2 class="favorites-header">Избранное</h2>
-        <div class="new-city">
-            <label>
-                <input class="search" placeholder="Добавить новый город">
-            </label>
-            <button>+</button>
-        </div>
-
-        <section id="city">
-            <section id="city-content">
-                <button class="close-button">×</button>
-                <article class="city-header">
-                    <h3>Moscow</h3>
-                    <img src="img/sunny-rain.svg" alt="sunny-rain">
-                    <p>5°C</p>
-                </article>
-                <ul>
+    <template class="templateFavorites">
+        <section class="city-from-favorites" id="city-from-favorites">
+            <div>
+                <div class="city-header">
+                    <h3>Loading...</h3>
+                    <img src="img/update.svg" alt="update">
+                    <p></p>
+                    <button onclick="deleteCity(this)">×</button>
+                </div>
+                <ul class="city-list">
                     <li>
-                        <p>Ветер</p>
-                        <p class="wind">Moderate breeze</p>
+                        <p>Feels like</p>
+                        <p class="feels-like"></p>
                     </li>
                     <li>
-                        <p>Ощущается как</p>
-                        <p class="feels_like">Broken clouds</p>
+                        <p>Wind speed</p>
+                        <p class="wind-speed"></p>
                     </li>
                     <li>
-                        <p>Давление</p>
-                        <p class="pressure">1013 hpa</p>
+                        <p>Humidity</p>
+                        <p class="humidity"></p>
                     </li>
                     <li>
-                        <p>Влажность</p>
-                        <p class="humidity">52%</p>
+                        <p>Pressure</p>
+                        <p class="pressure"></p>
                     </li>
                     <li>
-                        <p>Координаты</p>
-                        <p class="coords">[59.88, 30.42]</p>
+                        <p>Coords</p>
+                        <p class="coords"></p>
                     </li>
                 </ul>
-            </section>
+            </div>
         </section>
-    </section>
+    </template>
 </main>
 </body>
 </html>
