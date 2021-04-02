@@ -2,10 +2,9 @@ window.onload = async function () {
     navigator.geolocation.getCurrentPosition(position => setCurrentPosition(position),
         positionError => setDefaultCity());
 
-    let keys = Object.keys(window.localStorage);
-
-    for (let key of keys) {
-        let name = window.localStorage.getItem(key);
+    for (let i=0; i<localStorage.length; i++) {
+        let key = window.localStorage.key(i);
+        let name = window.localStorage.getItem(key)
         console.log(name);
         loadingFavorites();
 
