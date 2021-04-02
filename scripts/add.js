@@ -11,6 +11,8 @@ async function addCity() {
             console.log(window.localStorage.length);
             let continueOperation = true;
             for (let i = 0; i < window.localStorage.length; i++) {
+                console.log(window.localStorage.getItem(i));
+                console.log(data.name);
                 if (data.name === window.localStorage.getItem(i)) {
                     alert("the city already exists");
                     continueOperation = false;

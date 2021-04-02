@@ -198,7 +198,7 @@ h3 {
         font-size: 1.3rem;
     }
 
-    .current-city, .city-from-favorites {
+    .current-city, .cities, .favorites-header {
         grid-template-columns: 1fr;
     }
 
