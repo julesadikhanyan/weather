@@ -4,15 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <title>Weather Forecast</title>
-    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;700&display=swap" rel="stylesheet">
-    <script src="scripts/script.js"></script>
-    <script src="scripts/geolocation.js"></script>
-    <script src="scripts/fetch.js"></script>
-    <script src="scripts/print.js"></script>
-    <script src="scripts/update.js"></script>
-    <script src="scripts/add.js"></script>
-    <script src="scripts/delete.js"></script>
+    <link rel="stylesheet" href="css/desktop.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <script src="js/onload.js"></script>
+    <script src="js/geolocation.js"></script>
+    <script src="js/fetch.js"></script>
+    <script src="js/print.js"></script>
+    <script src="js/update.js"></script>
+    <script src="js/add.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/delete.js"></script>
 </head>
 <body>
 <header class="header">
@@ -22,15 +24,15 @@
     </div>
 </header>
 <main>
-    <section class="current-city" id="current-city">
-        <div class="current-city-main">
-            <h2>Please, wait! Loading!</h2>
+    <section class="current-city">
+        <div class="city-header">
+            <h2 class="city-name">Loading...</h2>
             <div class="current-city-content">
                 <img src="img/update.svg" alt="update">
                 <p></p>
             </div>
         </div>
-        <ul class="current-city-list">
+        <ul>
             <li>
                 <p>Feels like</p>
                 <p class="feels-like"></p>
@@ -55,52 +57,46 @@
     </section>
 
     <section class="favorites">
-        <div class="favorites-header">
-            <h2>Favorites</h2>
-            <div class="new-city">
-                <label>
-                    <input class="add-new-city" placeholder="Enter city name...">
-                </label>
-                <button onclick="addCity()">+</button>
-            </div>
+        <h2>Favorites</h2>
+        <div class="new-city">
+            <label>
+                <input placeholder="Enter city name...">
+            </label>
+            <button onclick="addCity()">+</button>
         </div>
-        <div class="cities"></div>
     </section>
-
-    <template class="templateFavorites">
-        <section class="city-from-favorites" id="city-from-favorites">
-            <div>
-                <div class="city-header">
-                    <h3>Loading...</h3>
-                    <img src="img/update.svg" alt="update">
-                    <p></p>
-                    <button onclick="deleteCity(this)">×</button>
-                </div>
-                <ul class="city-list">
-                    <li>
-                        <p>Feels like</p>
-                        <p class="feels-like"></p>
-                    </li>
-                    <li>
-                        <p>Wind speed</p>
-                        <p class="wind-speed"></p>
-                    </li>
-                    <li>
-                        <p>Humidity</p>
-                        <p class="humidity"></p>
-                    </li>
-                    <li>
-                        <p>Pressure</p>
-                        <p class="pressure"></p>
-                    </li>
-                    <li>
-                        <p>Coords</p>
-                        <p class="coords"></p>
-                    </li>
-                </ul>
-            </div>
-        </section>
-    </template>
 </main>
+<template class="favorites-template">
+    <section class="city">
+        <div class="city-header">
+            <h3 class="city-name">Loading...</h3>
+            <img src="img/update.svg" alt="update">
+            <p></p>
+            <button onclick="deleteCity(this)">×</button>
+        </div>
+        <ul class="city-list">
+            <li>
+                <p>Feels like</p>
+                <p class="feels-like"></p>
+            </li>
+            <li>
+                <p>Wind speed</p>
+                <p class="wind-speed"></p>
+            </li>
+            <li>
+                <p>Humidity</p>
+                <p class="humidity"></p>
+            </li>
+            <li>
+                <p>Pressure</p>
+                <p class="pressure"></p>
+            </li>
+            <li>
+                <p>Coords</p>
+                <p class="coords"></p>
+            </li>
+        </ul>
+    </section>
+</template>
 </body>
 </html>
