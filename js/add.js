@@ -10,7 +10,7 @@ async function addCity() {
                 let sectionID = favorites.length.toString();
                 createFromTemplate(sectionID);
                 favorites.push(id);
-                printFavoriteCity(data, sectionID);
+                await sleep(1000).then(() => { printFavoriteCity(data, sectionID) })
                 updateLocalStorage();
             } else {
                 alert('this city already exists!');
@@ -18,6 +18,10 @@ async function addCity() {
         }
         document.querySelector('input').value = '';
     }
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
 function pressEnter() {
