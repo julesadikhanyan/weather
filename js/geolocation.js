@@ -3,8 +3,7 @@ function getCurrentPosition() {
 }
 
 async function setCurrentPosition(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
+    let {latitude, longitude } = position.coords;
 
     printCurrentCity(await fetchWeatherByCoords(latitude, longitude));
 }

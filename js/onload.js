@@ -3,7 +3,6 @@ let favorites = [];
 window.onload = function () {
     getCurrentPosition();
     loadLocalStorage();
-    pressEnter();
 }
 
 function createFromTemplate(id) {
@@ -13,16 +12,3 @@ function createFromTemplate(id) {
     let clone = document.importNode(template.content, true);
     favorites.append(clone);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

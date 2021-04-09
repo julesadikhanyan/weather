@@ -58,12 +58,12 @@
 
     <section class="favorites">
         <h2>Favorites</h2>
-        <div class="new-city">
+        <form class="new-city" onsubmit="return false;">
             <label>
-                <input placeholder="Enter city name...">
+                <input type="text" placeholder="Enter city name...">
             </label>
             <button onclick="addCity()">+</button>
-        </div>
+        </form>
     </section>
 </main>
 <template class="favorites-template">

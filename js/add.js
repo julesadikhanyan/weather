@@ -23,12 +23,3 @@ async function addCity() {
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-function pressEnter() {
-    document.querySelector('input').addEventListener('keypress',
-        function (e) {
-            if (e.key === 'Enter') {
-                addCity();
-            }
-        });
-}
